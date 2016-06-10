@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { signIn } from '../actions';
 import $ from 'jquery';
-import Auth from '../services/AuthService';
 import Materialize from 'materialize';
+import Auth from '../services/AuthService';
 
 const mapStateToProps = props => (props);
 const mapDispatchToProps = (dispatch) => ({
@@ -62,6 +62,11 @@ class CreateAccount extends React.Component {
         .catch(this.handleError);
     })
     .fail(err => this.handleError(err));
+  }
+
+  facebookAuth(event) {
+    $.get('/api/auth/facebook', (err) => {
+    });
   }
 
   render() {
@@ -123,6 +128,7 @@ class CreateAccount extends React.Component {
               </div>
             </div>
           </form>
+          
         </div>
       </div>
     );
